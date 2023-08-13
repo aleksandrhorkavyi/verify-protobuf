@@ -1,0 +1,13 @@
+version: v1
+
+name: buf.build/olexandr/news-feed
+
+lint:
+  use:
+    - DEFAULT
+  ignore:
+    - google
+
+breaking:
+  use:
+    - FILE
