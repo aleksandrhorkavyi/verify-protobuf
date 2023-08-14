@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package user.v1;
+
+import "user/v1/model.proto";
+
+service UserService {
+  rpc Create(CreateUserRequest) returns(CreateUserResponse) {}
+}
+
+message CreateUserRequest {
+
+}
+
+message CreateUserResponse {
+ user.v1.User user = 1;
+}

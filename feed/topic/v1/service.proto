@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package topic.v1;
+
+import "topic/v1/model.proto";
+
+
+service FeedService {
+  rpc GetList(GetListRequest) returns (GetListResponse) {}
+  rpc GetOne(GetOneRequest) returns (GetOneResponse) {}
+}
+
+message GetListRequest {
+
+}
+
+message GetListResponse {
+  repeated Topic topics = 1;
+}
+
+message GetOneRequest {
+  int32 id = 1;
+}
+
+message GetOneResponse {
+  Topic topic = 1;
+}

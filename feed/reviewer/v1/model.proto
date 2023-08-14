@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package reviewer.v1;
+
+import "user/v1/model.proto";
+
+message Reviewer {
+  user.v1.User user = 1;
+  repeated string tags = 3;
+}

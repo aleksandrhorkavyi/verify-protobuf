@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package permissions.v1;
+
+enum Perm {
+  PERM_UNSPECIFIED = 0;
+  PERM_READ = 1;
+  PERM_REVIEW = 2;
+  PERM_PUBLISH = 3;
+}

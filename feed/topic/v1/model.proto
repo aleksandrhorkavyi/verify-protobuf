@@ -1,15 +1,15 @@
 syntax = "proto3";
 
-package message.v1;
+package topic.v1;
 
-message Message {
+message Topic {
   int32 id = 1;
   string short = 2;
   string full = 3;
   Publicity publicity = 4;
   Credibility credibility = 5;
   ReviewStats stats = 6;
-  repeated Message reviews = 7;
+  repeated Topic reviews = 7;
 }
 
 message ReviewStats {

@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package user.v1;
+
+import "google/protobuf/timestamp.proto";
+import "permissions/v1/model.proto";
+import "profile/v1/model.proto";
+
+message User {
+  int32 id = 1;
+  google.protobuf.Timestamp created = 2;
+  repeated permissions.v1.Perm perms = 3;
+  profile.v1.Profile profile = 4;
+}
