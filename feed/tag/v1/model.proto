@@ -1,3 +1,8 @@
 syntax = "proto3";
 
 package tag.v1;
+
+message Tag {
+  int32 id = 1;
+  string label = 2;
+}

@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package topic.v1;
 
+import "tag/v1/model.proto";
+
 message Topic {
   int32 id = 1;
   string short = 2;
@@ -10,6 +12,7 @@ message Topic {
   Credibility credibility = 5;
   ReviewStats stats = 6;
   repeated Topic reviews = 7;
+  repeated tag.v1.Tag tags = 8;
 }
 
 message ReviewStats {

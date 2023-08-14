@@ -3,12 +3,41 @@ syntax = "proto3";
 package user.v1;
 
 import "google/protobuf/timestamp.proto";
-import "permissions/v1/model.proto";
-import "profile/v1/model.proto";
+import "tag/v1/model.proto";
+
+enum Perm {
+  PERM_UNSPECIFIED = 0;
+  PERM_READ = 1;
+  PERM_REVIEW = 2;
+  PERM_PUBLISH = 3;
+}
 
 message User {
   int32 id = 1;
   google.protobuf.Timestamp created = 2;
-  repeated permissions.v1.Perm perms = 3;
-  profile.v1.Profile profile = 4;
+  repeated Perm perms = 3;
+  Profile profile = 4;
+}
+
+message Profile {
+  int32 user_id = 1;
+  string name = 2;
+  string avatar = 3;
+  string bio = 4;
+  google.protobuf.Timestamp created = 5;
+}
+
+message Publisher {
+  user.v1.User user = 1;
+  repeated tag.v1.Tag tags = 3;
+}
+
+message Reviewer {
+  user.v1.User user = 1;
+  repeated tag.v1.Tag tags = 3;
+}
+
+message Reader {
+  user.v1.User user = 1;
+  repeated tag.v1.Tag tags = 3;
 }
