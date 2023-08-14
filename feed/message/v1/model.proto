@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package message.v1;
+
+message Message {
+  int32 id = 1;
+  string short = 2;
+  string full = 3;
+  Publicity publicity = 4;
+  Credibility credibility = 5;
+  ReviewStats stats = 6;
+  repeated Message reviews = 7;
+}
+
+message ReviewStats {
+  int32 refinements = 1;
+  int32 refutes = 2;
+  int32 approves = 3;
+}
+
+enum Publicity {
+  PUBLICITY_UNSPECIFIED = 0;
+  PUBLICITY_DRAFT = 1;
+  PUBLICITY_REVIEW = 2;
+  PUBLICITY_PUBLISHED = 3;
+}
+
+enum Credibility {
+  CREDIBILITY_UNSPECIFIED = 0;
+  CREDIBILITY_DRAFT = 1;
+  CREDIBILITY_NOT_VERIFIED = 2;
+  CREDIBILITY_NEED_REFINEMENT = 3;
+  CREDIBILITY_REFUTED = 4;
+  CREDIBILITY_APPROVED = 5;
+}

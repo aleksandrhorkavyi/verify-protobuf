@@ -1,0 +1,17 @@
+version: v1
+
+name: buf.build/olexandr/verify-protobuf
+
+lint:
+  use:
+    - DEFAULT
+  ignore:
+    - google
+
+breaking:
+  use:
+    - FILE
+
+deps:
+  - buf.build/googleapis/googleapis
+  - buf.build/olexandr/test

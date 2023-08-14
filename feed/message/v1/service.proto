@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package message.v1;
+
+import "message/v1/model.proto";
+import "google/api/annotations.proto";
+
+
+service FeedService {
+  rpc GetList(GetListRequest) returns (GetListResponse) {
+    option (google.api.http) = {
+      get: "v1/messages"
+    };
+  }
+  rpc GetOne(GetOneRequest) returns (GetOneResponse) {
+    option (google.api.http) = {
+      get: "v1/messages/{id}"
+    };
+  }
+}
+
+message GetListRequest {
+
+}
+
+message GetListResponse {
+  repeated Message messages = 1;
+}
+
+message GetOneRequest {
+  int32 id = 1;
+}
+
+message GetOneResponse {
+  Message message = 1;
+}
